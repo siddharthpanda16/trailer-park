@@ -5,7 +5,9 @@ const { getMoviesRouter } = require("./routes/movies");
 const { getUsersRouter } = require("./routes/users");
 
 // Set up mongoose connection
-const dbURI = `mongodb://pat:password1@ds051334.mlab.com:51334/movie-app`;
+require('dotenv').config();
+// Set up mongoose connection
+const dbURI = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_URL}`;
 
 mongoose.connect(dbURI);
 mongoose.Promise = global.Promise;
